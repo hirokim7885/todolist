@@ -8,23 +8,21 @@
         </div>
     </head>
     <body>
-        <%= form_for @task, url: list_path(@task) do |f| %>
-        <p>
+        <%= form_with model: @task, url: list_path(@task) do |f| %>
+        <p>タイトル：
             <%= f.text_field :title, placeholder: 'タイトル' %>            
         </P>
-        <p>
+        <p>内容：
             <%= f.text_area :body, placeholder: '内容' %>
         </P>
-        <p>
-            <%= f.datetime_field :deadline, placeholder: '期限（日付）' %>
+        <p>期限（日時）：
+            <%= f.datetime_field :deadline, placeholder: '期限（日時）' %>
         </P>
-        <p>
-            <%= form_for @task.priority, url: list_path(@task) do |f| %>
-            <%= f.text_field :name, placeholder: '優先度' %>
-            <% end %>
+        <p>優先度：           
+            <%= f.select :priority_id, [['なる早', 1], ['やや早', 2], ['備忘', 3]] %>
         </P>
-        <p>
-            <%= f.text_field :category, placeholder: 'カテゴリー' %>
+        <p>カテゴリー：
+            <%= f.select :category, [['仕事', 'business'], ['プライベート', 'privates']] %>
         </P>
         <p>
             <%= f.submit %>
