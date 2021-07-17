@@ -1,0 +1,31 @@
+<!DOCUTYPE html>
+<html>
+    <head>
+        <div class="header">
+            <h2><%= link_to 'ホーム', root_path %></h2>
+            <h2><%= link_to 'アカウント', new_account_session_path %></h2>
+            <h2><%= link_to 'ログアウト', destroy_account_session_path %></h2>
+        </div>
+    </head>
+    <body>
+        <%= form_for :task, url: lists_path do |f| %>
+        <p>
+            <%= f.text_field :title, placeholder: 'タイトル' %>
+        </P>
+        <p>
+            <%= f.text_area :body, placeholder: '内容' %>
+        </P>
+        <p>
+            <%= f.datetime_local_field :deadline, placeholder: '期限（日付）' %>
+        </P>
+        <p>
+            <%= f.number_field :priority, placeholder: '優先度' %>
+        </P>
+        <p>
+            <%= f.text_field :category, placeholder: 'カテゴリー' %>
+        </P>
+        <p>
+            <%= f.submit %>
+        </P>
+        <% end %>
+    </body>
