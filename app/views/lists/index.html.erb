@@ -4,7 +4,7 @@
         <div class="header">
             <h2><%= link_to 'ホーム', root_path %></h2>
             <h2><%= link_to 'アカウント', new_account_session_path %></h2>
-            <h2><%= link_to 'ログアウト', destroy_account_session_path %></h2>
+            <h2><%= link_to 'ログアウト', destroy_account_session_path, method: :delete %></h2>
         </div>
     </head>
     <body>
@@ -25,6 +25,9 @@
             <% @tasks.each do |task| %>
             <li>
             <%= link_to task.title, list_path(task.id) %>
+            <%= link_to task.category, list_path(task.id) %>
+            <%= link_to task.priority.name, list_path(task.id) %>
+            <%= link_to '削除', list_path(task.id), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
             </li>
             <% end %>
             </ul>

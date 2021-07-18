@@ -38,7 +38,7 @@ class ListsController < ApplicationController
     def destroy
         @task = current_account.tasks.find(params[:id])
         @task.destroy
-        redirect_to lists_path, notice; 'タスクを削除しました。'
+        redirect_to lists_url, notice: 'タスクを削除しました。'
     end
 
     private
