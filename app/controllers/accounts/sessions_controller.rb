@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Accounts::SessionsController < Devise::SessionsController
-  devise_for :accounts, controllers: { :sessions: 'accounts/sessions' }
+  devise_for :accounts, controllers: { sessions: 'accounts/sessions' }
 
     def create
     end
@@ -32,7 +32,7 @@ class Accounts::SessionsController < Devise::SessionsController
 
   def destroy
     reset_session
-    redirect_to new_account_session_path, notice: 'ログアウトしました'
+    redirect_to account_session_path, notice: 'ログアウトしました'
   end
 
 end
