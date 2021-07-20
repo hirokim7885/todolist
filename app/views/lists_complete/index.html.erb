@@ -8,7 +8,7 @@
         </div>
     </head>
     <body>
-        <h2 class="today">タスク一覧</h2>
+        <h2 class="today">プライベートのタスク</h2>
         <div class="menu_container"
             <h2>メニュー</h2>
             <p><%= link_to '今日のタスク', lists_today_path %></p>
@@ -22,13 +22,13 @@
             <%= link_to "タスクの追加", new_list_path, class: "add_task" %>
             </h2>
             <ul>
-            <% @tasks.where(complete: 0).find_each do |task| %>
+            <% @tasks.where(complete: 1).find_each do |task| %>
             <li>
-              <%= link_to task.complete, list_path(task.id) %>
-              <%= link_to task.title, list_path(task.id) %>
-              <%= link_to task.category, list_path(task.id) %>
-              <%= link_to task.priority.name, list_path(task.id) %>
-              <%= link_to '削除', list_path(task.id), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
+                <%= link_to task.complete, list_path(task.id) %>
+                <%= link_to task.title, list_path(task.id) %>
+                <%= link_to task.category, list_path(task.id) %>
+                <%= link_to task.priority.name, list_path(task.id) %>
+                <%= link_to '削除', list_path(task.id), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
             </li>
             <% end %>
             </ul>

@@ -11,7 +11,7 @@
 
 
 # Task data
-    # Task.create( title: '食材買い出し', body: '社員旅行にてF山にてキャンプ', category: 1, account_id: 1, priority_id: 3 )
+    # Task.create( title: '参考書を買う', body: '資格取得のため', category: 1, account_id: 1, priority_id: 3, complete: 0 )
 
 # Priority data
     # Priority.create( name: 'early' )

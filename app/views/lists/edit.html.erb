@@ -10,22 +10,25 @@
     <body>
         <%= form_with model: @task, url: list_path(@task) do |f| %>
         <p>タイトル：
-            <%= f.text_field :title, placeholder: 'タイトル' %>            
+          <%= f.text_field :title, placeholder: 'タイトル' %>            
         </P>
         <p>内容：
-            <%= f.text_area :body, placeholder: '内容' %>
+          <%= f.text_area :body, placeholder: '内容' %>
         </P>
         <p>期限（日時）：
-            <%= f.datetime_field :deadline, placeholder: '期限（日時）' %>
+          <%= f.datetime_field :deadline, placeholder: '期限（日時）' %>
         </P>
         <p>優先度：           
-            <%= f.select :priority_id, [['なる早', 1], ['やや早', 2], ['備忘', 3]] %>
+          <%= f.select :priority_id, [['なる早', 1], ['やや早', 2], ['備忘', 3]] %>
         </P>
         <p>カテゴリー：
-            <%= f.select :category, [['仕事', 'business'], ['プライベート', 'privates']] %>
+          <%= f.select :category, [['仕事', 'business'], ['プライベート', 'privates']] %>
+        </P>
+        <p>タスク完了：
+          <%= f.select :complete, [['作業完了', 'complete'], ['作業未了', 'complete_not']] %>
         </P>
         <p>
-            <%= f.submit %>
+          <%= f.submit %>
         </P>
         <% end %>
     </body>

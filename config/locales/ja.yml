@@ -17,3 +17,5 @@ ja:
     task:
         privates: プライベート
         business: 仕事
+        not_complete: 作業未了
+        complete: 作業完了
