@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
 class Accounts::SessionsController < Devise::SessionsController
-  devise_for :accounts, controllers: { sessions: 'accounts/sessions' }
-
-    def create
-    end
-
   # before_action :configure_sign_in_params, only: [:create]
+
+  devise_for :accounts, controllers: { sessions: 'accounts/sessions' }
 
   # GET /resource/sign_in
   # def new
@@ -30,9 +27,12 @@ class Accounts::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+  def create
+  end
+
   def destroy
     reset_session
-    redirect_to account_session_path, notice: 'ログアウトしました'
+    redirect_to 'lists#index', notice: 'ログアウトしました'
   end
 
 end
