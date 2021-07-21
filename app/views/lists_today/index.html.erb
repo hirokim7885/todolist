@@ -12,7 +12,7 @@
         <div class="menu_container"
             <h2>メニュー</h2>
             <p><%= link_to '今日のタスク', lists_today_path %></p>
-            <p>明日以降のタスク</p>
+            <p><%= link_to 'これからのタスク', lists_tomorrow_path %></p>
             <p><%= link_to 'プライベートのタスク', lists_privates_path %></p>
             <p><%= link_to '仕事のタスク', lists_business_path %></p>
             <p><%= link_to '終わったタスク', lists_complete_path %></p>
@@ -22,8 +22,9 @@
             <%= link_to "タスクの追加", new_list_path, class: "add_task" %>
             </h2>
             <ul>
-            <% @tasks.where(daedline: current_date).find_each do |task| %>
+            <% @tasks.where(deadline: (Time.now.end_of_day - 1.day)..Time.now.end_of_day, complete: 0).find_each do |task| %>
             <li>
+            <%= link_to task.complete, list_path(task.id) %>
             <%= link_to task.title, list_path(task.id) %>
             <%= link_to task.category, list_path(task.id) %>
             <%= link_to task.priority.name, list_path(task.id) %>

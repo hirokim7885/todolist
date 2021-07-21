@@ -12,7 +12,7 @@
         <div class="menu_container"
             <h2>メニュー</h2>
             <p><%= link_to '今日のタスク', lists_today_path %></p>
-            <p>明日以降のタスク</p>
+            <p><%= link_to 'これからのタスク', lists_tomorrow_path %></p>
             <p><%= link_to 'プライベートのタスク', lists_privates_path %></p>
             <p><%= link_to '仕事のタスク', lists_business_path %></p>
             <p><%= link_to '終わったタスク', lists_complete_path %></p>

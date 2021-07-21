@@ -24,6 +24,9 @@
         <p>カテゴリー：
             <%= f.select :category, [['仕事', 'business'], ['プライベート', 'privates']] %>
         </P>
+        <p>タスク完了：
+          <%= f.select :complete, [['作業完了', 'complete'], ['作業未了', 'complete_not']] %>
+        </P>
         <p>
             <%= f.submit %>
         </P>
