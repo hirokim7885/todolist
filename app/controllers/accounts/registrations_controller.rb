@@ -38,6 +38,39 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def new
+    @account = Account.new
+  end
+
+  def create
+    @account = Account.new(account.params)
+    if @account = Account.save
+      redirect_to sign_in_path, notice: '新規登録しました。'
+    else
+        render 'new', status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @current_account = current_account.find(params[:id])
+  end
+
+  def update
+    @current_account =  current_account.find(params[:id])
+    if @current_account.update(account_params)
+        redirect_to root_path(@current_account), notice: '登録を更新しました。'
+    else
+        render 'edit', status: :unprocessable_entity
+    end
+  end
+
+
+  def destroy
+    @current_account = current_account.find(params[:id])
+    @current_account.destroy
+    redirect_to sign_in_path, notice: 'アカウントを消去しました。'
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -59,4 +92,10 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+  def account_params
+    params.require(:account).permit( :name, :email, :password)
+  end
+
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Accounts::SessionsController < Devise::SessionsController
+  
   # before_action :configure_sign_in_params, only: [:create]
 
   devise_for :accounts, controllers: { sessions: 'accounts/sessions' }
@@ -27,12 +28,22 @@ class Accounts::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+  def new
+    @account = account.find.new(params[:id])
+  end
+
   def create
+    @account = account.find.new(params[:id])
+    if @account = current_account
+      redirect_to lists_path, notice: 'ログインしました。'
+    else
+        render 'new', status: :unprocessable_entity
+    end
   end
 
   def destroy
     reset_session
-    redirect_to account_session_path, notice: 'ログアウトしました'
+    redirect_to sign_in_path, notice: 'ログアウトしました'
   end
 
 end
