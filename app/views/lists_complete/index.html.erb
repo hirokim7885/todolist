@@ -22,9 +22,9 @@
             <%= link_to "タスクの追加", new_list_path, class: "add_task" %>
             </h2>
             <ul>
-            <% @tasks.where(complete: 1).find_each do |task| %>
+            <% @tasks.where(status: 1).find_each do |task| %>
             <li>
-                <%= link_to task.complete, list_path(task.id) %>
+                <%= link_to task.status, list_path(task.id) %>
                 <%= link_to task.title, list_path(task.id) %>
                 <%= link_to task.category, list_path(task.id) %>
                 <%= link_to task.priority.name, list_path(task.id) %>

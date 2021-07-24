@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_20_122745) do
+ActiveRecord::Schema.define(version: 2021_07_24_033905) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_07_20_122745) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category"
-    t.integer "complete"
+    t.integer "status"
     t.index ["account_id"], name: "index_tasks_on_account_id"
     t.index ["priority_id"], name: "index_tasks_on_priority_id"
   end
