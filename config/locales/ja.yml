@@ -4,18 +4,20 @@ ja:
       account: アカウント
     attributes:
       account:
-      id: ID
-      name: 名前
-      email: メールアドレス
-      password: パスワード
-      reset_password_sent_at: パスワード再発送日時
-      created_at: 作成日時
-      updated_at: 更新日時
-    task:
-      category: カテゴリー
+        id: ID
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        reset_password_sent_at: パスワード再発送日時
+        created_at: 作成日時
+        updated_at: 更新日時
+      task:
+        category: カテゴリー
   enums:
     task:
+      category:
         privates: プライベート
         business: 仕事
-        not_complete: 作業未了
+      status:
+        incomplete: 未着手
         complete: 作業完了

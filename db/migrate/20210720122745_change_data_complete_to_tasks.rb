@@ -1,5 +1,5 @@
 class ChangeDataCompleteToTasks < ActiveRecord::Migration[6.1]
   def change
-    change_column :tasks, :complete, :integer
+    add_column :tasks, :status, :integer
   end
 end

@@ -1,6 +1,6 @@
 <h2> <%= @current_account.name.to_s.humanize %> さんのアカウント</h2>
 
-<%= form_with model: @current_account, url: account_registration_path(@current_account), html: { method: :put } do |f| %>
+<%= form_with model: @current_account, url: account_registration_path, html: { method: :put } do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">

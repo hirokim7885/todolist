@@ -1,38 +1,31 @@
-<!DOCUTYPE html>
-<html>
-    <head>
-        <div class="header">
-            <h2><%= link_to 'ホーム', root_path %></h2>
-            <h2><%= link_to 'アカウント', new_account_session_path %></h2>
-            <h2><%= link_to 'ログアウト', destroy_account_session_path, method: :delete %></h2>
-        </div>
-    </head>
-    <body>
-        <h2 class="today">プライベートのタスク</h2>
-        <div class="menu_container"
-            <h2>メニュー</h2>
-            <p><%= link_to '今日のタスク', lists_today_path %></p>
-            <p><%= link_to 'これからのタスク', lists_tomorrow_path %></p>
-            <p><%= link_to 'プライベートのタスク', lists_privates_path %></p>
-            <p><%= link_to '仕事のタスク', lists_business_path %></p>
-            <p><%= link_to '終わったタスク', lists_complete_path %></p>
-        </div>
-        <div class="task_container">
-            <h2 class="add_task">
-            <%= link_to "タスクの追加", new_list_path, class: "add_task" %>
-            </h2>
-            <ul>
-            <% @tasks.where(category: 0, status: 0).find_each do |task| %>
-            <li>
-                <%= link_to task.status, list_path(task.id) %>
-                <%= link_to task.title, list_path(task.id) %>
-                <%= link_to task.category, list_path(task.id) %>
-                <%= link_to task.priority.name, list_path(task.id) %>
-                <%= link_to '削除', list_path(task.id), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
-            </li>
-            <% end %>
-            </ul>
-        </div>
-    </body>
-</html>
+<div class="header">
+  <h2><%= link_to 'ホーム', root_path %></h2>
+  <h2><%= link_to 'アカウント', new_account_session_path %></h2>
+  <h2><%= link_to 'ログアウト', destroy_account_session_path, method: :delete %></h2>
+</div>
+<h2 class="today">プライベートのタスク</h2>
+  <div class="menu_container"
+    <h2>メニュー</h2>
+      <p><%= link_to '今日のタスク', lists_today_path %></p>
+      <p><%= link_to 'これからのタスク', lists_tomorrow_path %></p>
+      <p><%= link_to 'プライベートのタスク', lists_privates_path %></p>
+      <p><%= link_to '仕事のタスク', lists_business_path %></p>
+      <p><%= link_to '終わったタスク', lists_complete_path %></p>
+    </div>
+  <div class="task_container">
+    <h2 class="add_task">
+      <%= link_to "タスクの追加", new_list_path, class: "add_task" %>
+    </h2>
+      <ul>
+      <% @tasks.each do |task| %>
+        <li>
+          <%= link_to task.status_i18n, list_path(task.id) %>
+          <%= link_to task.title, list_path(task.id) %>
+          <%= link_to task.category_i18n, list_path(task.id) %>
+          <%= link_to task.priority.name, list_path(task.id) %>
+          <%= link_to '削除', list_path(task.id), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %>
+        </li>
+      <% end %>
+      </ul>
+  </div>
 

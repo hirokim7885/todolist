@@ -4,7 +4,7 @@ class Account < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  validates :name, presence: true, length: { maximum: 30 }
+  validates :name, presence: true,  length: { maximum: 30 }
 
   has_many :tasks, dependent: :destroy
   

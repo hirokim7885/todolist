@@ -1,34 +1,28 @@
-<!DOCUTYPE html>
-<html>
-    <head>
-        <div class="header">
-          <h2><%= link_to 'ホーム', root_path %></h2>
-          <h2><%= link_to 'アカウント', new_account_session_path %></h2>
-          <h2><%= link_to 'ログアウト', destroy_account_session_path, method: :delete %></h2>
-        </div>
-    </head>
-    <body>
-        <%= form_with model: @task, url: lists_path do |f| %>
-        <p>タイトル：
-            <%= f.text_field :title, placeholder: 'タイトル' %>
-        </P>
-        <p>内容：
-            <%= f.text_area :body, placeholder: '内容' %>
-        </P>
-        <p>期限（日時）
-            <%= f.datetime_local_field :deadline, placeholder: '期限（日時）' %>
-        </P>
-        <p>優先度：
-            <%= f.select :priority_id, [['なる早', 1], ['やや早', 2], ['備忘', 3]]%>
-        </p>
-        <p>カテゴリー：
-            <%= f.select :category, [['仕事', 'business'], ['プライベート', 'privates']] %>
-        </P>
-        <p>タスク完了：
-          <%= f.select :status, [['作業完了', 'complete'], ['作業未了', 'complete_not']] %>
-        </P>
-        <p>
-            <%= f.submit %>
-        </P>
-        <% end %>
-    </body>
+<div class="header">
+  <h2><%= link_to 'ホーム', root_path %></h2>
+  <h2><%= link_to 'アカウント', new_account_session_path %></h2>
+  <h2><%= link_to 'ログアウト', destroy_account_session_path, method: :delete %></h2>
+</div>
+  <%= form_with model: @task, url: lists_path do |f| %>
+    <p>タイトル：
+      <%= f.text_field :title, placeholder: 'タイトル' %>
+    </P>
+    <p>内容：
+      <%= f.text_area :body, placeholder: '内容' %>
+    </P>
+    <p>期限（日時）
+      <%= f.datetime_local_field :deadline, placeholder: '期限（日時）' %>
+    </P>
+    <p>優先度：
+      <%= f.select :priority_id, [['なる早', 1], ['やや早', 2], ['備忘', 3]]%>
+    </p>
+    <p>カテゴリー：
+      <%= f.select :category, [['仕事', 'business'], ['プライベート', 'privates']] %>
+    </P>
+    <p>タスク完了：
+      <%= f.select :status, [['作業完了', 'complete'], ['未着手', 'incomplete']] %>
+    </P>
+    <p>
+      <%= f.submit %>
+    </P>
+  <% end %>

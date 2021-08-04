@@ -1,28 +1,22 @@
-<!DOCUTYPE html>
-<html>
-    <head>
-        <div class="header">
-            <h2><%= link_to 'ホーム', root_path %></h2>
-            <h2><%= link_to 'アカウント', new_account_session_path %></h2>
-            <h2><%= link_to 'ログアウト', destroy_account_session_path, method: :delete %></h2>
-        </div>
-    </head>
-    <body>
-        <p><%= @task.title %></P>
-        <p><%= @task.body %></P>
-        <p><%= @task.deadline %></P>
-        <p><%= @task.priority.name %></P>
-        <p><%= @task.category %></P>
-        <p><%= @task.status %></P>
-        <div class='task_edit'>
-            <p><%= link_to '編集', edit_list_path(@task) %></P>
-        </div>
-        <div class='task_delete'>
-            <p>
-            <%= link_to '削除',
-            list_path(@task),
-            method: :delete,
-            data: { confirm: '削除してもよろしいでしょうか？' } %>
-            </P>
-        </div>
-    </body>
+<div class="header">
+  <h2><%= link_to 'ホーム', root_path %></h2>
+  <h2><%= link_to 'アカウント', new_account_session_path %></h2>
+  <h2><%= link_to 'ログアウト', destroy_account_session_path, method: :delete %></h2>
+</div>
+  <p><%= @task.title %></P>
+  <p><%= @task.body %></P>
+  <p><%= @task.deadline %></P>
+  <p><%= @task.priority.name %></P>
+  <p><%= @task.category_i18n %></P>
+  <p><%= @task.status_i18n %></P>
+  <div class='task_edit'>
+    <p><%= link_to '編集', edit_list_path(@task) %></P>
+  </div>
+  <div class='task_delete'>
+    <p>
+    <%= link_to '削除',
+        list_path(@task),
+        method: :delete,
+        data: { confirm: '削除してもよろしいでしょうか？' } %>
+    </P>
+  </div>
