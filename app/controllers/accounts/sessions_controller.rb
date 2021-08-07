@@ -2,7 +2,7 @@
 
 class Accounts::SessionsController < Devise::SessionsController
   
-  devise_for :accounts, controllers: { sessions: 'accounts/sessions' }
+  # devise_for :accounts, controllers: { sessions: 'accounts/sessions' }
 
   def new
     @account = account.find.new(params[:id])
