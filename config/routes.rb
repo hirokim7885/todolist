@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :accounts
   
-  devise_scope :account do
-    get 'sign_in', to: 'devise/sessions#new'
-  end
+  # devise_scope :account do
+  #   get 'sign_in', to: 'devise/sessions#new'
+  # end
 
 
   get '/lists/today', to: 'lists_today#index'
